@@ -15,7 +15,25 @@ export interface Proposal {
   deadline: Date;
   votesFor: number;
   votesAgainst: number;
-  status: 'active' | 'completed';
+  status: 'active' | 'closed';
+}
+
+export interface ToastMessage {
+  id: string;
+  message: string;
+  type: 'success' | 'error';
+}
+
+export interface BlockchainCommunity {
+  name: string;
+  proposal: BlockchainProposal;
+}
+
+export interface BlockchainProposal {
+  title: string;
+  votesFor: number;
+  votesAgainst: number;
+  active: boolean;
 }
 
 export interface Vote {

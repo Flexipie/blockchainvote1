@@ -26,7 +26,7 @@ export default function Sidebar({
       className={`fixed h-full bg-white shadow-lg transition-all duration-300 ${
         isOpen ? 'w-64 translate-x-0' : 'w-64 -translate-x-full'
       }`}
-      style={{ top: '4rem' }}
+      style={{ top: '4rem', zIndex: 50 }}
     >
       <div className="p-4">
         <div className="space-y-1">

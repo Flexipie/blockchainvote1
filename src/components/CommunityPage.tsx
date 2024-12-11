@@ -7,9 +7,12 @@ interface Props {
   community: Community;
   proposals: Proposal[];
   onVote: (proposalId: string, vote: boolean) => Promise<void>;
+  isJoined: boolean;
+  onJoin: () => Promise<void>;
+  onBack: () => void;
 }
 
-export default function CommunityPage({ community, proposals, onVote }: Props) {
+export default function CommunityPage({ community, proposals, onVote, isJoined, onJoin, onBack }: Props) {
   return (
     <div className="space-y-8">
       <div className="relative h-64 rounded-xl overflow-hidden">
@@ -31,6 +34,11 @@ export default function CommunityPage({ community, proposals, onVote }: Props) {
       <div className="bg-white rounded-xl shadow-lg p-6">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">About</h2>
         <p className="text-gray-600">{community.description}</p>
+        {isJoined ? (
+          <p className="text-gray-600 mt-2">You are already a member of this community.</p>
+        ) : (
+          <p className="text-gray-600 mt-2">Join this community to participate in proposals.</p>
+        )}
       </div>
 
       <div>
